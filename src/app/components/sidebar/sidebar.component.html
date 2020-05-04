@@ -39,6 +39,12 @@
                 </a>
             </li>
             <li class="menuItems.class nav-item" routerLinkActive="active">
+                <a class="nav-link" *ngIf="auth.loggedIn">
+                    <i class="material-icons">credit_card</i>
+                    <p>Comprar paquete</p>
+                </a>
+            </li>
+            <li class="menuItems.class nav-item" routerLinkActive="active">
                 <a class="nav-link" routerLink="/faq">
                     <i class="material-icons">help</i>
                     <p>Preguntas frecuentes</p>
@@ -80,6 +86,12 @@
             <a class="nav-link" routerLink="/user-profile" *ngIf="auth.loggedIn">
                 <i class="material-icons">account_circle</i>
                 <p>Mi perfil</p>
+            </a>
+        </li>
+        <li class="menuItems.class nav-item" routerLinkActive="active">
+            <a class="nav-link" *ngIf="auth.loggedIn">
+                <i class="material-icons">credit_card</i>
+                <p>Comprar paquete</p>
             </a>
         </li>
         <li class="menuItems.class nav-item" routerLinkActive="active">

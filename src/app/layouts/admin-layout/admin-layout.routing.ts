@@ -2,12 +2,12 @@ import { Routes } from '@angular/router';
 
 // Componentes
 import { DashboardComponent } from '../../dashboard/dashboard.component';
-import { UserProfileComponent } from '../../user-profile/user-profile.component';
+import { UserProfileComponent } from '../../components/user-profile/user-profile.component';
 import { HomeComponent } from '../../components/home/home.component';
 import { FaqComponent } from '../../components/faq/faq.component';
-
 // Servicios AUTH para protección de páginas mediante logueo
 import { AuthGuard } from '../../services/auth.guard';
+
 
 
 
