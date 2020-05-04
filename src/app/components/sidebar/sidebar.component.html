@@ -1,0 +1,99 @@
+<div class="logo">
+    <a routerLink="/dashboard" class="simple-text">
+        <div class="logo-img">
+            <img src="/assets/icon/small.png" />
+        </div>
+        Lane Go!
+    </a>
+</div>
+<div class="sidebar-wrapper">
+    <div *ngIf="isMobileMenu()">
+        <form class="navbar-form" *ngIf="auth.loggedIn">
+            <span class="bmd-form-group">
+        <div class="input-group no-border">
+          <input type="text" value="" class="form-control" placeholder="Search...">
+          <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon">
+            <i class="material-icons">search</i>
+            <div class="ripple-container"></div>
+          </button>
+        </div>
+      </span>
+        </form>
+        <ul class="nav navbar-nav nav-mobile-menu">
+            <li class="menuItems.class nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="/dashboard">
+                    <i class="material-icons">home</i>
+                    <p>Inicio</p>
+                </a>
+            </li>
+            <li class="menuItems.class nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="/home">
+                    <i class="material-icons">new_releases</i>
+                    <p>Novedades</p>
+                </a>
+            </li>
+            <li class="menuItems.class nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="/user-profile" *ngIf="auth.loggedIn">
+                    <i class="material-icons">account_circle</i>
+                    <p>Mi perfil</p>
+                </a>
+            </li>
+            <li class="menuItems.class nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="/faq">
+                    <i class="material-icons">help</i>
+                    <p>Preguntas frecuentes</p>
+                </a>
+            </li>
+            <li class="menuItems.class nav-item" routerLinkActive="active">
+                <a class="nav-link" (click)="auth.login()" *ngIf="!auth.loggedIn">
+                    <i class="material-icons">account_circle</i>
+                    <p>Ingresar</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <ul class="nav">
+        <form class="navbar-form">
+            <span class="bmd-form-group" *ngIf="auth.loggedIn">
+        <div class="input-group no-border">
+          <input type="text" value="" class="form-control" placeholder="Search...">
+          <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon">
+            <i class="material-icons">search</i>
+            <div class="ripple-container"></div>
+          </button>
+        </div>
+      </span>
+        </form>
+        <li class="menuItems.class nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="/dashboard">
+                <i class="material-icons">home</i>
+                <p>Inicio</p>
+            </a>
+        </li>
+        <li class="menuItems.class nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="/home">
+                <i class="material-icons">new_releases</i>
+                <p>Novedades</p>
+            </a>
+        </li>
+        <li class="menuItems.class nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="/user-profile" *ngIf="auth.loggedIn">
+                <i class="material-icons">account_circle</i>
+                <p>Mi perfil</p>
+            </a>
+        </li>
+        <li class="menuItems.class nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="/faq">
+                <i class="material-icons">help</i>
+                <p>Preguntas frecuentes</p>
+            </a>
+        </li>
+        <li class="menuItems.class nav-item" routerLinkActive="active">
+            <a class="nav-link" (click)="auth.login()" *ngIf="!auth.loggedIn">
+                <i class="material-icons">account_circle</i>
+                <p>Ingresar</p>
+            </a>
+        </li>
+
+    </ul>
+</div>
