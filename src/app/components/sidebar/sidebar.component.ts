@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 
 
+
 declare const $: any;
 declare interface RouteInfo {
     path: string;
@@ -13,6 +14,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/user-profile', title: 'Mi perfil',  class: '' },
     { path: '/faq', title: 'Preguntas frecuentes',   class: '' },
     { path: '/home', title: 'Novedades',  class: '' },
+    { path: '/buy-package', title: 'Comprar Paquete',  class: '' },
 ];
 
 @Component({

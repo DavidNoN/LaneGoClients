@@ -1,7 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute fixed-top">
     <div class="container-fluid">
-        <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:void(0)">{{getTitle()}}</a>
+        <div class="form-group">
+            <h4 *ngIf="auth.userProfile$ | async as profile">Bienvenido: <strong><b><i>{{ profile.nickname}}</i> </b></strong></h4>
+            <a class="navbar-brand" href="javascript:void(0)"> {{getTitle()}}</a>
+            <div class="ripple-container"></div>
         </div>
         <button mat-raised-button class="navbar-toggler" type="button" (click)="sidebarToggle()">
             <span class="sr-only">Toggle navigation</span>
@@ -35,7 +37,7 @@
                         </p>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item " routerLink="/user-profile">Mi perfil</a>
+                        <a class="dropdown-item " routerLink="/user-profile">Mi empresa</a>
                         <a class="dropdown-item " (click)="auth.logout()">Desconectar</a>
                     </div>
                 </li>

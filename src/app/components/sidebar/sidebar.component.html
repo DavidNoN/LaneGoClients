@@ -39,7 +39,7 @@
                 </a>
             </li>
             <li class="menuItems.class nav-item" routerLinkActive="active">
-                <a class="nav-link" *ngIf="auth.loggedIn">
+                <a class="nav-link" routerLink="/buy-package" *ngIf="auth.loggedIn">
                     <i class="material-icons">credit_card</i>
                     <p>Comprar paquete</p>
                 </a>
@@ -89,7 +89,7 @@
             </a>
         </li>
         <li class="menuItems.class nav-item" routerLinkActive="active">
-            <a class="nav-link" *ngIf="auth.loggedIn">
+            <a class="nav-link" routerLink="/buy-package" *ngIf="auth.loggedIn">
                 <i class="material-icons">credit_card</i>
                 <p>Comprar paquete</p>
             </a>

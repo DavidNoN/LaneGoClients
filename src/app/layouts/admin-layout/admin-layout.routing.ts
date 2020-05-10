@@ -7,6 +7,9 @@ import { HomeComponent } from '../../components/home/home.component';
 import { FaqComponent } from '../../components/faq/faq.component';
 // Servicios AUTH para protección de páginas mediante logueo
 import { AuthGuard } from '../../services/auth.guard';
+import { ViewComponent } from '../../components/client-form/view/view.component';
+import { ControlComponent } from '../../components/client-form/control/control.component';
+
 
 
 
@@ -59,5 +62,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'user-profile',   component: UserProfileComponent, canActivate: [AuthGuard] },
     { path: 'home',          component: HomeComponent },
     { path: 'faq',            component: FaqComponent },
+    { path: 'buy-package',   component: ViewComponent, canActivate: [AuthGuard] },
 
 ];

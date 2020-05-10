@@ -1,0 +1,12 @@
+<section class="container">
+
+    <header>
+        <button class="btn btn-primary" type="button" cdkStepperPrevious>Atrás</button>
+        <button class="btn btn-primary" type="button" cdkStepperNext>Siguiente</button>
+    </header>
+
+    <div [style.display]="selected ? 'block' : 'none'">
+        <ng-container [ngTemplateOutlet]="selected.content"></ng-container>
+    </div>
+
+</section>

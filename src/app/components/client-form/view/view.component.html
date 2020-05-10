@@ -1,0 +1,352 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <div class="container padding-bottom-3x mb-1" #target>
+                    <div class="card mb-3">
+                        <div class="p-4 text-center text-white text-lg bg-dark rounded-top"><span class="text-uppercase">Orden: </span><span class="text-medium"></span></div>
+                        <div class="d-flex flex-wrap flex-sm-nowrap justify-content-between py-3 px-2 bg-secondary">
+                            <div class="w-100 text-center py-1 px-2"><span class="text-medium">Términos & condiciones</span></div>
+                            <div class="w-100 text-center py-1 px-2"><span class="text-medium">Paquetes</span> Lane Go!</div>
+                            <div class="w-100 text-center py-1 px-2"><span class="text-medium">Confirmar Orden</span> {{test | date: 'dd/MM/yyyy'}}</div>
+                        </div>
+                        <div class="card-body" id="top">
+                            <div class="steps d-flex flex-wrap flex-sm-nowrap justify-content-between padding-top-2x padding-bottom-1x">
+                                <div class="step" [ngClass]="{'completed': completed === true}">
+                                    <div class="step-icon-wrap">
+                                        <div class="step-icon"><i class="pe-7s-info"></i></div>
+                                    </div>
+                                    <h4 class="step-title">Términos & Condiciones</h4>
+                                </div>
+                                <div class="step" [ngClass]="{'completed': completed2 === true}">
+                                    <div class="step-icon-wrap">
+                                        <div class="step-icon"><i class="pe-7s-cart"></i></div>
+                                    </div>
+                                    <h4 class="step-title">Paquetes Lane Go!</h4>
+                                </div>
+                                <div class="step" [ngClass]="{'completed': completed3 === true}">
+                                    <div class="step-icon-wrap">
+                                        <div class="step-icon"><i class="pe-7s-id"></i></div>
+                                    </div>
+                                    <h4 class="step-title">Información empresa</h4>
+                                </div>
+                                <div class="step" [ngClass]="{'completed': completed4 === true}">
+                                    <div class="step-icon-wrap">
+                                        <div class="step-icon"><i class="pe-7s-medal"></i></div>
+                                    </div>
+                                    <h4 class="step-title">Confirmar datos</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- [completed]="completed" -->
+                <div id="registration" class="conatiner col-md-12">
+                    <form id="regForm" [formGroup]="registrationForm" autocomplete="off">
+                        <app-control linear>
+                            <cdk-step [completed]="completed" editable="false">
+                                <div class="card">
+                                    <div *ngIf="completed === true" class="alert alert-success alert-with-icon" data-notify="container">
+                                        <i class="material-icons" data-notify="icon">check</i>
+                                        <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">  <i class="material-icons">close</i></button>
+                                        <span data-notify="message">
+                                            <b>¡Gracias!</b> Ya puedes seguir con el siguiente fórmulario</span>
+                                    </div>
+                                    <div *ngIf="completed === false" class="alert alert-warning alert-with-icon" data-notify="container">
+                                        <i class="material-icons" data-notify="icon">check</i>
+                                        <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">  <i class="material-icons">close</i></button>
+                                        <span data-notify="message">
+                                            <b>¡ Advertencia !</b> Debes aceptar los terminos y condiciones para continuar</span>
+                                    </div>
+                                    <app-reg-step1></app-reg-step1>
+                                    <input type="text" name="a" value="Haz click si aceptas términos y condiciones" matInput [disabled]="true" />
+                                    <button class="btn btn-danger" type="button" (click)="completeStep()" (click)="scroll(target)">Acepto terminos y condiciones</button>
+                                </div>
+                            </cdk-step>
+                            <cdk-step [completed]="completed2" editable="true">
+                                <div class="card">
+                                    <section class="pricing py-5">
+                                        <div class="container">
+                                            <div class="row">
+                                                <!-- Free Tier -->
+                                                <div class="col-lg-4">
+                                                    <div class="card mb-5 mb-lg-0">
+                                                        <div class="form-group card-body">
+                                                            <h5 class="card-title text-muted text-uppercase text-center">Plan Básico</h5>
+                                                            <h6 class="card-price text-center">$3.5<span class="period">Millones (COP)</span></h6>
+                                                            <hr>
+                                                            <ul class="fa-ul">
+                                                                <li><span class="fa-li"><i class="fas fa-check"></i></span>5 preguntas</li>
+                                                                <li><span class="fa-li"><i class="fas fa-check"></i></span>1 publicidad en vídeos</li>
+                                                                <li><span class="fa-li"><i class="fas fa-check"></i></span>1 vídeo tématico</li>
+                                                                <li><span class="fa-li"><i class="fas fa-check"></i></span>1 estación concurso</li>
+                                                                <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Sin inicio automático</li>
+                                                                <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Sin menciones</li>
+                                                                <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Sin visitas local</li>
+                                                            </ul>
+                                                            <input value="basico" class="form-control" type="hidden" name="paquete">
+                                                            <div class="form-group row">
+                                                                <div class="input-group col-md-8">
+                                                                    <button type="button" class="btn btn-primary" (click)="colorBoton1()" (click)="completeStep2('basico')" [ngClass]="{'btn-success': btb === true}">
+                                                                Básico
+                                                              </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Plus Tier -->
+                                                <div class="col-lg-4">
+                                                    <div class="card mb-5 mb-lg-0">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title text-muted text-uppercase text-center">Plan Avanzado</h5>
+                                                            <h6 class="card-price text-center">$6.5<span class="period">Millones (COP)</span></h6>
+                                                            <hr>
+                                                            <ul class="fa-ul">
+                                                                <li><span class="fa-li"><i class="fas fa-check"></i></span>10 preguntas</li>
+                                                                <li><span class="fa-li"><i class="fas fa-check"></i></span>ilimitado publicidad en vídeos</li>
+                                                                <li><span class="fa-li"><i class="fas fa-check"></i></span>2 vídeo tématico</li>
+                                                                <li><span class="fa-li"><i class="fas fa-check"></i></span>1 estación concurso</li>
+                                                                <li><span class="fa-li"><i class="fas fa-check"></i></span>2 menciones</li>
+                                                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Inicio automático</li>
+                                                                <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Sin visitas local</li>
+                                                            </ul>
+                                                            <input value="avanzado=" class="form-control" type="hidden" name="paquete">
+                                                            <div class="form-group row">
+                                                                <div class="input-group col-md-8">
+                                                                    <button type="button" class="btn btn-primary" (click)="completeStep2('avanzado')" (click)="colorBoton2()" [ngClass]="{'btn-success': bta === true}">
+                                                                Avanzado
+                                                              </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Pro Tier -->
+                                                <div class="col-lg-4">
+                                                    <style></style>
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title text-muted text-uppercase text-center">Plan Élite</h5>
+                                                            <h6 class="card-price text-center">$16<span class="period">Millones (COP)</span></h6>
+                                                            <hr>
+                                                            <ul class="fa-ul">
+                                                                <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>15 preguntas</strong></li>
+                                                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Visitas local</li>
+                                                                <li><span class="fa-li"><i class="fas fa-check"></i></span>ilimitado publicidad en vídeos</li>
+                                                                <li><span class="fa-li"><i class="fas fa-check"></i></span>2 vídeo tématico</li>
+                                                                <li><span class="fa-li"><i class="fas fa-check"></i></span>3 estación concurso</li>
+                                                                <li><span class="fa-li"><i class="fas fa-check"></i></span>ilimitado menciones</li>
+                                                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Inicio automático</li>
+                                                            </ul>
+                                                            <input value="elite" class="form-control" type="hidden" name="paquete">
+                                                            <div class="form-group row">
+                                                                <div class="input-group col-md-8">
+                                                                    <button type="button" class="btn btn-primary" (click)="completeStep2('elite')" (click)="colorBoton3()" [ngClass]="{'btn-success': bte === true}">
+                                                                Élite
+                                                              </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </cdk-step>
+                            <cdk-step editable="true" [completed]="completed3">
+                                <div class="card">
+                                    <div class="card-header card-header-primary">
+                                        <h4 class="card-title">Información de factura</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <form id="regForm" [formGroup]="registrationForm" (ngSubmit)="guardar()" autocomplete="off">
+                                            <div class="row">
+                                                <div class="form-group col-md-4 ">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input class="form-control" matInput placeholder="Nombre Empresa:" formControlName="empresa" [class.is-invalid]="empresaNoValido">
+                                                        <small *ngIf="empresaNoValido" class="text-danger">Este campo es obligatorio</small>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="form-group col-md-5">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input matInput placeholder="NIT xxxxxxxxx-x:" formControlName="nit" [class.is-invalid]="nitNoValido">
+                                                        <small *ngIf="empresaNoValido" class="text-danger">Este campo es obligatorio</small>
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-md-6">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input class="form-control" matInput placeholder="Nombre representante legal:" formControlName="nombre" [class.is-invalid]="nombreNoValido">
+                                                        <small *ngIf="empresaNoValido" class="text-danger">Este campo es obligatorio</small>
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-md-6">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input class="form-control" matInput placeholder="E-mail:" formControlName="correo" [class.is-invalid]="correoNoValido">
+                                                        <small *ngIf="empresaNoValido" class="text-danger">Este campo es obligatorio</small>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input class="form-control" [disabled]="true" matInput placeholder="País: Colombia">
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                            <div class="row ">
+                                                <div class="form-group col-md-6">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input class="form-control" matInput placeholder="N° contacto (solo números):" formControlName="contacto" [class.is-invalid]="contactoNoValido">
+                                                        <small *ngIf="empresaNoValido" class="text-danger">Este campo es obligatorio</small>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input class="form-control" matInput placeholder="Actividad Comercial" formControlName="actividad" [class.is-invalid]="actividadNoValido">
+                                                        <small *ngIf="empresaNoValido" class="text-danger">Este campo es obligatorio</small>
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="input-group">
+                                                    <button type="submit" mat-raised-button class="btn btn-primary pull-right" (click)="completeStep3()" [ngClass]="{'btn-success': completed3 === true}">Confirmar datos</button>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix "></div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </cdk-step>
+                            <cdk-step editable="true">
+                                <div class="card" id="content" #content>
+                                    <div class="card receipt-content container">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                Factura
+                                                <strong>{{ test | date: "dd,MM,yyyy" }}</strong>
+                                                <span class="float-right"> <strong>Lane Go!:</strong> <img class="d-block w-100" src="./assets/icon/small.png"></span>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row mb-4">
+                                                    <div class="col-sm-6">
+                                                        <h6 class="mb-3">De:</h6>
+                                                        <div>
+                                                            <strong>Lane Go! empresas</strong>
+
+                                                        </div>
+                                                        <div>David Arcila Parra</div>
+                                                        <div>Pereira, Colombia</div>
+                                                        <div>Email: davidnon@utp.edu.co</div>
+                                                        <div>Phone: +57 3114221168</div>
+                                                    </div>
+
+                                                    <div class="col-sm-6">
+                                                        <h6 class="mb-3">Para:</h6>
+                                                        <div>
+                                                            <strong>{{registrationForm.get('nombre').value}}</strong>
+                                                        </div>
+                                                        <div>{{registrationForm.get('empresa').value}}</div>
+                                                        <div>Pereira, Colombia</div>
+                                                        <div>{{registrationForm.get('correo').value}}</div>
+                                                        <div>{{registrationForm.get('actividad').value}}</div>
+                                                        <div>{{registrationForm.get('contacto').value}}</div>
+                                                    </div>
+
+
+
+                                                </div>
+
+                                                <div class="table-responsive-sm">
+                                                    <table class="table table-striped" id="printTable">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="center">#</th>
+                                                                <th>Objeto</th>
+                                                                <th>Descripción</th>
+
+                                                                <th class="right">Costo unidad</th>
+                                                                <th class="center">Cantidad</th>
+                                                                <th class="right">Total</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td class="center">1</td>
+                                                                <td class="left strong">{{registrationForm.get('paquete').value}}</td>
+                                                                <td class="left">{{ pb }}</td>
+                                                                <td class="right">{{ definePrice | currency:'COP' }}</td>
+                                                                <td class="center">1</td>
+                                                                <td class="right">{{ definePrice | currency:'COP' }}</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-4 col-sm-5">
+
+                                                    </div>
+
+                                                    <div class="col-lg-4 col-sm-5 ml-auto">
+                                                        <table class="table table-clear" id="printTable2">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class="left">
+                                                                        <strong>Subtotal</strong>
+                                                                    </td>
+                                                                    <td class="right">COP: {{ definePrice | currency}}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="left">
+                                                                        <strong>Descuento (20%)</strong>
+                                                                    </td>
+                                                                    <td class="right">{{ definePrice*0.2 | currency }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="left">
+                                                                        <strong>IVA (19%)</strong>
+                                                                    </td>
+                                                                    <td class="right">{{ ((definePrice-(definePrice*0.2))*0.19) | currency }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="left">
+                                                                        <strong>Total</strong>
+                                                                    </td>
+                                                                    <td class="right">
+                                                                        <strong>{{ (definePrice-definePrice*0.2)+((definePrice-(definePrice*0.2))*0.19) | currency }}</strong>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary" (click)="downloadPDF()">Guardar Factura</button>
+                            </cdk-step>
+                        </app-control>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<!-- <pre>
+    Estado del formulario: {{ registrationForm.valid }}
+    <br>
+    Status: {{ registrationForm.status }}
+</pre>
+
+<pre>
+    {{ registrationForm.value | json }}
+</pre> -->

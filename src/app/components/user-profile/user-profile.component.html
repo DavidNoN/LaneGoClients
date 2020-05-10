@@ -11,26 +11,31 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput *ngIf="auth.userProfile$ | async as profile" placeholder="Nombre: {{profile.given_name}} (disabled)">
+                                        <input [disabled]="true" matInput *ngIf="auth.userProfile$ | async as profile" placeholder="Nombre Empresa: {{profile.given_name}} (disabled)">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-5">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput *ngIf="auth.userProfile$ | async as profile" placeholder="Apellidos: {{profile.family_name}} (disabled)">
+                                        <input [disabled]="true" matInput *ngIf="auth.userProfile$ | async as profile" placeholder="Representante legal: {{profile.family_name}} (disabled)">
                                     </mat-form-field>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput *ngIf="auth.userProfile$ | async as profile" placeholder="Nombre de usuario: {{profile.nickname}} (disabled)">
+                                        <input [disabled]="true" matInput *ngIf="auth.userProfile$ | async as profile" placeholder="Nombre de usuario: {{profile.nickname}} (disabled)">
                                     </mat-form-field>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput *ngIf="auth.userProfile$ | async as profile" placeholder="E-mail: {{profile.email}} (disabled)">
+                                        <input [disabled]="true" matInput *ngIf="auth.userProfile$ | async as profile" placeholder="E-mail: {{profile.email}} (disabled)">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input [disabled]="true" matInput placeholder="Ciudad: Pereira">
                                     </mat-form-field>
                                 </div>
                             </div>
@@ -40,27 +45,10 @@
                                     <div class="card-body">
                                         <h5 class="card-title">Actualizar perfil</h5>
                                         <p class="card-text">Para actualizar los campos de su perfil es necesario que los actualice en su correo y/o cuenta de Google, cierre sesión y vuelva a iniciar.</p>
-                                        <h5 class="card-title">Borrar cuenta</h5>
-                                        <p class="card-text">Tendrás 10 días a partir de que haga la petición para borrar cuenta, para recuperar antes de que sea borrada para siempre.</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <label>Sobre Mi</label>
-                                    <mat-form-field class="example-full-width">
-                                        <textarea matInput placeholder="Cuentános algo sobre ti" #bio></textarea>
-                                    </mat-form-field>
-                                    <!-- <div class="form-group">
-
-                                      <div class="form-group">
-                                          <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
-                                          <textarea class="form-control" rows="5"></textarea>
-                                      </div>
-                                  </div> -->
-                                </div>
-                            </div>
-                            <button type="submit" mat-raised-button (click)="auth.logout()" class="btn btn-danger pull-right">Borrar Cuenta</button>
+                            <button type="submit" mat-raised-button (click)="auth.logout()" class="btn btn-primary pull-right">Borrar Cuenta</button>
                             <div class="clearfix "></div>
                         </form>
                     </div>
@@ -78,7 +66,7 @@
                         <h4 class="card-title " *ngIf="auth.userProfile$ | async as profile ">{{ profile.given_name }}</h4>
                         <p class="card-description " *ngIf="showMsg">
                         </p>
-                        <a href="javascript:void(0) " class="btn btn-primary btn-round ">Empezar a Jugar</a>
+                        <a href="javascript:void(0) " class="btn btn-primary btn-round ">Comprar Paquete</a>
                     </div>
                 </div>
             </div>
