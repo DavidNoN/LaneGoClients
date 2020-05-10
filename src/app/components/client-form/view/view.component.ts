@@ -165,12 +165,12 @@ export class ViewComponent implements OnInit {
   cargarDataAlFormulario() {
     this.registrationForm.setValue({
       paquete: '',
-      empresa: 'hdsahsj',
-      nit: '2138823183-9',
-      correo: 'sdasa@g.co',
-      contacto: '5676545654',
-      nombre: 'David jdskajdsa',
-      actividad: 'vagancia',
+      empresa: '',
+      nit: '',
+      correo: '',
+      contacto: '',
+      nombre: '',
+      actividad: '',
     });
   }
 
