@@ -9,7 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  public title : string;
+  public subtitle: string;
+
+  constructor() { 
+    this.title = "LaneGo!"
+    this.subtitle = "Plataforma de Concursos"
+  }
 
   ngOnInit() {
   }
